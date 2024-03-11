@@ -10,7 +10,7 @@ This search engine is designed to index and search across 6,348,910 Wikipedia pa
 
 Here's the search process in short:
 
-1. Submission: Users submit queries via an HTTP request to the search engine hosted on a GCP VM instance, using the predefined port 8080. The query URL follows the format: http://[VM_INSTANCE_IP]:8080/search?query=[QUERY], where [VM_INSTANCE_IP] is replaced with the IP address of the VM instance, and [QUERY] is replaced with the user's search query.
+1. Submission: Users submit queries via an HTTP request to the search engine hosted on a Google Cloud Platform VM instance, using the predefined port 8080. The query URL follows the format: http://[VM_INSTANCE_IP]:8080/search?query=[QUERY], where [VM_INSTANCE_IP] is replaced with the IP address of the VM instance, and [QUERY] is replaced with the user's search query.
 2. Parsing: The engine parses the user's query, identifying key terms and considering special syntax for exact phrase matches.
 3. Index Searching: Utilizing an inverted index, the engine efficiently identifies documents containing the query terms from the extensive Wikipedia dataset, supported by Google Cloud Platform's scalable resources.
 4. Scoring and Ranking: Documents are ranked using page views, PageRank scores and relevance scoring algorithms like TF-IDF and BM25, based on the occurrence and distribution of query terms within the Text and Anchor Text.
@@ -28,3 +28,4 @@ This repository contains all the components necessary for setting up and running
 - buckets_content.txt: A text file listing the contents of the GCP storage bucket used by the search engine.
 - graphframes.sh: An initialization script for setting up the Google Cloud Dataproc cluster.
 - queries_train.json: A training set of queries, complete with predicted title IDs. This can be used to test and evaluate the search engine's performance and accuracy in retrieving relevant documents.
+- startup_script_gcp.sh: A startup script designed for setting up the GCP VM instance the application runs on.
