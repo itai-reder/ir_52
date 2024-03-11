@@ -10,8 +10,8 @@ This search engine is designed to index and search across 6,348,910 Wikipedia pa
 
 Here's the search process in short:
 
-1. Submission: Users submit queries via an HTTP request to the search engine hosted on a Google Cloud Platform VM instance, using the predefined port 8080. The query URL follows the format: http://[VM_INSTANCE_IP]:8080/search?query=[QUERY], where [VM_INSTANCE_IP] is replaced with the IP address of the VM instance, and [QUERY] is replaced with the user's search query.
-2. Parsing: The engine parses the user's query, identifying key terms and considering special syntax for exact phrase matches.
+1. Submitting a Query: Users submit queries via an HTTP request to the search engine hosted on a Google Cloud Platform VM instance, using the predefined port 8080. The query URL follows the format: http://[VM_INSTANCE_IP]:8080/search?query=[QUERY], where [VM_INSTANCE_IP] is replaced with the IP address of the VM instance, and [QUERY] is replaced with the user's search query.
+2. Indexing and Stemming: The engine parses the user's query, identifying key terms and considering special syntax for exact phrase matches.
 3. Index Searching: Utilizing an inverted index, the engine efficiently identifies documents containing the query terms from the extensive Wikipedia dataset, supported by Google Cloud Platform's scalable resources.
 4. Scoring and Ranking: Documents are ranked using page views, PageRank scores and relevance scoring algorithms like TF-IDF and BM25, based on the occurrence and distribution of query terms within the Text and Anchor Text.
 5. Result Retrieval: Titles of top-ranked documents are returned to the user, with each document's ID linking to a Wikipedia page. These can be accessed directly via https://en.wikipedia.org/?curid=[ID], substituting [ID] with the document's ID.
