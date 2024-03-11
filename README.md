@@ -28,4 +28,4 @@ This repository contains all the components necessary for setting up and running
 - buckets_content.txt: A text file listing the contents of the GCP storage bucket used by the search engine.
 - graphframes.sh: An initialization script for setting up the Google Cloud Dataproc cluster.
 - queries_train.json: A training set of queries, complete with predicted title IDs. This can be used to test and evaluate the search engine's performance and accuracy in retrieving relevant documents.
-- startup_script_gcp.sh: A startup script designed for setting up the GCP VM instance the application runs on.
+- startup_script_gcp.sh: A startup script for setting up the GCP VM instance the application runs on.
