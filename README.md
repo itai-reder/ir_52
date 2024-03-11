@@ -11,8 +11,8 @@ This search engine is designed to index and search across 6,348,910 Wikipedia pa
 Here's the search process in short:
 
 1. Submitting a Query: Users submit queries via an HTTP request to the search engine hosted on a Google Cloud Platform VM instance, using the predefined port 8080. The query URL follows the format: http://[VM_INSTANCE_IP]:8080/search?query=[QUERY], where [VM_INSTANCE_IP] is replaced with the IP address of the VM instance, and [QUERY] is replaced with the user's search query.
-2. Indexing and Stemming: The engine parses the user's query, identifying key terms and considering special syntax for exact phrase matches.
-3. Index Searching: Utilizing an inverted index, the engine efficiently identifies documents containing the query terms from the extensive Wikipedia dataset, supported by Google Cloud Platform's scalable resources.
+2. Stemming and Tokenizing: The engine parses the user's query, identifying key terms and considering special syntax for exact phrase matches.
+3. Index Searching: Utilizing an inverted index, the engine efficiently identifies documents containing the query terms from the Wikipedia dataset.
 4. Scoring and Ranking: Documents are ranked using page views, PageRank scores and relevance scoring algorithms like TF-IDF and BM25, based on the occurrence and distribution of query terms within the Text and Anchor Text.
 5. Result Retrieval: Titles of top-ranked documents are returned to the user, with each document's ID linking to a Wikipedia page. These can be accessed directly via https://en.wikipedia.org/?curid=[ID], substituting [ID] with the document's ID.
 
@@ -20,12 +20,12 @@ Here's the search process in short:
 
 This repository contains all the components necessary for setting up and running the search engine. Below is an overview of the main directories and files included:
 
-- GCP Jupyter Notebooks: This folder houses several Jupyter notebooks that are essential for creating the indexes and necessary dictionaries required by the search engine. These notebooks detail the preprocessing and indexing steps performed on the Wikipedia dataset. Additionally, the inverted_index_gcp.py file within this folder provides utility functions that support index operations in a Google Cloud Platform environment.
+- GCP Jupyter Notebooks: This folder houses several Jupyter notebooks that are essential for creating the indexes and necessary dictionaries required by the search engine. These notebooks detail the preprocessing and indexing steps performed on the Wikipedia dataset, using parts of code from previous assignments.
 - search: Contains the core files of the search engine, including:
   - search_frontend.py: The application that serves as the front end of the search engine, handling HTTP requests and interfacing with the backend.
-  - backend.py: Implements the backend logic of the search engine, including query processing, scoring, and ranking of documents.
-  - inverted_index_gcp.py: Provides additional utility functions for managing the inverted index.
+  - backend.py: Implements the backend for the scoring process.
+  - inverted_index_gcp.py: Provides additional utility functions for managing and creating the inverted index.
 - buckets_content.txt: A text file listing the contents of the GCP storage bucket used by the search engine.
 - graphframes.sh: An initialization script for setting up the Google Cloud Dataproc cluster.
-- queries_train.json: A training set of queries, complete with predicted title IDs. This can be used to test and evaluate the search engine's performance and accuracy in retrieving relevant documents.
+- queries_train.json: A training set of queries, along with predicted title IDs. This can be used to test and evaluate the search engine's performance and accuracy in retrieving relevant documents.
 - startup_script_gcp.sh: A startup script for setting up the GCP VM instance the application runs on.
